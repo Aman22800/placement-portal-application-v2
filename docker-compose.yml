@@ -1,0 +1,30 @@
+services:
+  redis:
+    image: redis:7-alpine
+
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    volumes:
+      - ./instance:/app/instance
+      - ./static/resumes:/app/static/resumes
+
+  worker:
+    build: .
+    command: celery -A app:celery worker --loglevel=info
+    env_file:
+      - .env
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - redis
+    volumes:
+      - ./instance:/app/instance
+      - ./static/resumes:/app/static/resumes

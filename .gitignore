@@ -1,0 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Database (evaluator will recreate via create_db.py)
+instance/*.db
+instance/*.db-journal
+instance/*.db-wal
+instance/*.db-shm
+
+# Frontend
+frontend/node_modules/
+
+# OS
+.DS_Store
+.env
+.env
+__pycache__/
+*.pyc
+venv/
+.venv/
+instance/*.db
+static/resumes/*
+!static/resumes/.gitkeep
