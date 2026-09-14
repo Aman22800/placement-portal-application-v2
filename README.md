@@ -1,4 +1,4 @@
-# Placement Portal Application (MAD-2 Project)
+# Placement Portal Application 
 
 A role-based placement management web app (Admin, Company, Student) built with
 Flask, Vue 3 (Vite), SQLite, and Celery + Redis for background jobs.
